@@ -9,7 +9,7 @@ const plusJarkataSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-    title: "Devarturo - Luna UI",
+    title: "Devarturo - Tsuki UI",
 };
 
 export default function RootLayout({
