@@ -1,3 +1,4 @@
+import BillingToggle from "@/components/BillingToggle";
 import Footer from "@/components/Footer";
 import FooterBrand from "@/components/FooterBrand";
 import FooterCopy from "@/components/FooterCopy";
@@ -26,6 +27,8 @@ export default function Home() {
                     <HeroTitle />
                     <HeroDescription />
                 </Hero>
+                {/* CREATE A PRICING PROVIDER */}
+                <BillingToggle />
             </MainWrapper>
             <Footer>
                 <FooterBrand />
