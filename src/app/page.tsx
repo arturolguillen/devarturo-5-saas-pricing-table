@@ -8,6 +8,7 @@ import HeroBadge from "@/components/HeroBadge";
 import HeroDescription from "@/components/HeroDescription";
 import HeroTitle from "@/components/HeroTitle";
 import MainWrapper from "@/components/MainWrapper";
+import PricingGrid from "@/components/PricingGrid";
 import Topbar from "@/components/Topbar";
 import TopbarCTA from "@/components/TopbarCTA";
 import TopbarLogo from "@/components/TopbarLogo";
@@ -29,6 +30,7 @@ export default function Home() {
                 </Hero>
                 {/* CREATE A PRICING PROVIDER */}
                 <BillingToggle />
+                <PricingGrid />
             </MainWrapper>
             <Footer>
                 <FooterBrand />
