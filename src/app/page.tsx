@@ -1,4 +1,7 @@
 import BillingToggle from "@/components/BillingToggle";
+import FeaturedSectionGlow from "@/components/FeaturedSectioGlow";
+import FeaturedSection from "@/components/FeaturedSection";
+import FeaturedSectionContent from "@/components/FeaturedSectionContent";
 import Footer from "@/components/Footer";
 import FooterBrand from "@/components/FooterBrand";
 import FooterCopy from "@/components/FooterCopy";
@@ -31,6 +34,10 @@ export default function Home() {
                 {/* CREATE A PRICING PROVIDER */}
                 <BillingToggle />
                 <PricingGrid />
+                <FeaturedSection>
+                    <FeaturedSectionContent />
+                    <FeaturedSectionGlow />
+                </FeaturedSection>
             </MainWrapper>
             <Footer>
                 <FooterBrand />
