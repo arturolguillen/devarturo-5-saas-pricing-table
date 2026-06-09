@@ -3,3 +3,30 @@
 @theme inline {
     --font-sans: var(--font-plus-jarkata-sans);
 }
+
+@keyframes price-bounce {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    35% {
+        transform: translateY(-2px) scale(1.02);
+    }
+    60% {
+        transform: translateY(0) scale(0.995);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.price-bounce {
+    animation: price-bounce 380ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    display: inline-block;
+    will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .price-bounce {
+        animation: none;
+    }
+}

@@ -1,10 +1,18 @@
+"use client";
+
 import type { Plan as PlanType } from "@/plans";
 import clsx from "clsx";
 import { CircleCheck } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { usePricing } from "./PricingProvider";
 
 export default function Plan({ plan }: {
     plan: PlanType;
 }) {
+    const { billingPeriod } = usePricing();
+    const [isPriceAnimating, setIsPriceAnimating] = useState(false);
+    const isFirstRender = useRef(true);
+
     const {
         name,
         description,
@@ -17,6 +25,23 @@ export default function Plan({ plan }: {
         featured,
         custom_price,
     } = plan;
+
+    const displayedPrice = billingPeriod === 'month' ? month : year;
+
+    useEffect(() => {
+        if (isFirstRender.current) {
+            isFirstRender.current = false;
+            return;
+        }
+
+        setIsPriceAnimating(true);
+
+        const timeoutId = setTimeout(() => {
+            setIsPriceAnimating(false);
+        }, 380);
+
+        return () => clearTimeout(timeoutId);
+    }, [billingPeriod]);
 
     return (
         <div className={clsx({
@@ -38,7 +63,13 @@ export default function Plan({ plan }: {
             ) : (
                 <div className="mb-8 flex items-baseline gap-1">
                     <span className="text-4xl font-bold text-white">$</span>
-                    <span className="text-5xl font-bold text-white">{month}</span>
+                    <span className={clsx(
+                        "text-5xl font-bold text-white",
+                        { 'price-bounce': isPriceAnimating },
+                    )}
+                    >
+                        {displayedPrice}
+                    </span>
                     <span className="text-sm text-slate-400 font-medium">{'/mo'}</span>
                 </div>
             )}

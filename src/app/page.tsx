@@ -11,6 +11,7 @@ import HeroBadge from "@/components/HeroBadge";
 import HeroDescription from "@/components/HeroDescription";
 import HeroTitle from "@/components/HeroTitle";
 import MainWrapper from "@/components/MainWrapper";
+import PricingProvider from "@/components/PricingProvider";
 import PricingGrid from "@/components/PricingGrid";
 import Topbar from "@/components/Topbar";
 import TopbarCTA from "@/components/TopbarCTA";
@@ -31,9 +32,10 @@ export default function Home() {
                     <HeroTitle />
                     <HeroDescription />
                 </Hero>
-                {/* CREATE A PRICING PROVIDER */}
-                <BillingToggle />
-                <PricingGrid />
+                <PricingProvider>
+                    <BillingToggle />
+                    <PricingGrid />
+                </PricingProvider>
                 <FeaturedSection>
                     <FeaturedSectionContent />
                     <FeaturedSectionGlow />
